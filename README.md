@@ -7,14 +7,12 @@ This repository contains the source code used in *Super-Resolution of Three-Dime
 - [Setup](#setup)
   - [Docker Containers](#docker-containers)
   - [Singularity Containers](#singularity-containers)
+- [Code used in experiments](#code-used-in-experiments)
 
 ## Setup
 
 - The Singularity containers were used for experiments.
-  - At least, 1 GPU board of NVIDIA A100 40GB is required.
-  - The same singularity containers were used on local and [Earth Simulator (ES)](https://www.jamstec.go.jp/es/en/)
 - The Docker containers have the same environments as in the Singularity containers.
-  - These Docker containers were used to test if the Singularity containers work.
 
 ### Docker Containers
 
@@ -36,3 +34,12 @@ $ export PORT=8888 # your own port
 $ singularity exec --nv --env PYTHONPATH="$(pwd)/pytorch" \
     ./pytorch.sif jupyter lab --no-browser --ip=0.0.0.0 --allow-root --LabApp.token='' --port=$PORT
 ```
+
+## Code used in experiments
+
+- [Data generation for deep learning](./datascience/script/make_dl_data_using_outside_lr_builds.py)
+- [CNN training](./pytorch/script/train_model.sh)
+  - This shell script runs [python script](./pytorch/script/train_model.py)
+- [CNN evaluation](./pytorch/notebook)
+  - The CNNs are evaluated using notebooks in the above dir.
+
