@@ -14,17 +14,14 @@ import pandas as pd
 import xarray as xr
 from tqdm import tqdm
 
-if f"{ROOT_DIR}/datascience/src" not in sys.path:
-    sys.path.append(f"{ROOT_DIR}/datascience/src")
-
-from building_height_helper import (
+from src.building_height_helper import (
     calc_ave_pooling_weights,
     calc_is_in_building,
     make_resized_lr_tz,
     read_building_height,
 )
-from io_grads import get_grads_dir_micro_meteorology
-from training_data_maker import (
+from src.io_grads import get_grads_dir_micro_meteorology
+from src.training_data_maker import (
     load_atmos_data,
     make_coarse_grained_dataset_with_outside_lr_buildings,
 )
@@ -44,7 +41,7 @@ os.makedirs(LOG_DIR, exist_ok=True)
 
 
 SR_SCALE = 4
-assert SR_SCALE == 4
+assert SR_SCALE == 4, "Not implemented other SR_SCALE yet."
 
 TIME_SAMPLE_INTERVAL = 2
 HR_MARGIN = 40
