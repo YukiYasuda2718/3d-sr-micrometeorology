@@ -1,5 +1,13 @@
 # 3d-sr-micrometeorology <!-- omit in toc -->
 
+[![license](https://img.shields.io/badge/license-CC%20BY--NC--SA-informational)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode) [![pytorch](https://img.shields.io/badge/PyTorch-1.11.0-informational)](https://pytorch.org/)
+
+This repository contains the source code used in *Super-Resolution of Three-Dimensional Temperature and Velocity for Building-Resolving Urban Micrometeorology Using Physics-Guided Convolutional Neural Networks with Image Inpainting Techniques.*
+
+- [Setup](#setup)
+  - [Docker Containers](#docker-containers)
+  - [Singularity Containers](#singularity-containers)
+
 ## Setup
 
 - The Singularity containers were used for experiments.
