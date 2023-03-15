@@ -1,0 +1,59 @@
+data:
+  data_dir_names:
+    - "10"
+  train_valid_test_ratios:
+    - 0.60
+    - 0.20
+    - 0.20
+  hr_org_size: # z, y, x
+    - 32
+    - 320
+    - 320
+  hr_crop_size: # z, y, x
+    - 32
+    - 64
+    - 64
+  means:
+    - 302.00
+    - -6.50
+    - -9.10
+    - -3.50
+  stds:
+    - 8.40
+    - 14.40
+    - 21.60
+    - 7.00
+  datasizes:
+    train: 2475
+    valid: 825
+    test: 900
+  nan_value: 0.0
+  batch_size: 32
+  seed: 42
+  max_discarded_lr_z_index: 0
+train:
+  num_epochs: 1200
+  lr: 1.0e-4
+  num_loops_train: 1
+  num_loops_valid: 1
+  loss:
+    name: MixedDivergenceGradientL2Loss
+    weight_gradient_loss: 1.0
+    weight_divergence_loss: 10.0
+  seed: 42
+model:
+  model_name: "unet"
+  in_channels: 4
+  out_channels: 4
+  num_feat0: 64
+  num_feat1: 128
+  num_feat2: 128
+  num_feat3: 256
+  num_feat4: 256
+  num_x2upsample: 2
+  num_latent_layers: 3
+  n_layers_in_block: 2
+  bias_feat_extraction: False
+  conv_mode_feat_extraction: "g_conv_with_separated_bias"
+  conv_mode_down_block: "g_conv_with_separated_bias"
+  conv_mode_up_block: # None
