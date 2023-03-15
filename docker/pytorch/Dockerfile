@@ -43,7 +43,7 @@ COPY Pipfile Pipfile.lock ${HOME}/
 
 # Python libraries such as black are installed in ${HOME}/.local/bin 
 RUN cd ${HOME} && \
-    pip install -U pip pipenv && \
+    pip install -U pip==23.0.1 pipenv==2023.2.18 && \
     export PATH="$PATH:${HOME}/.local/bin" && \
     pipenv install --system --dev --ignore-pipfile && \
     rm -rf ${HOME}/.cache/pip ${HOME}/.cache/pipenv

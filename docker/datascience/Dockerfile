@@ -51,7 +51,7 @@ RUN mkdir ${HOME}/tmp && cd ${HOME}/tmp && \
 COPY Pipfile Pipfile.lock ${HOME}/
 
 RUN cd ${HOME} && \
-    pip install -U pip pipenv && \
+    pip install -U pip==23.0.1 pipenv==2023.2.18 && \
     pipenv install --system --dev --ignore-pipfile && \
     rm -rf ${HOME}/.cache/pip ${HOME}/.cache/pipenv
 
