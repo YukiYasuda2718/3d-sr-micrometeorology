@@ -1,0 +1,15 @@
+{
+    // Code Diagnostics
+    // @krassowski/jupyterlab-lsp:diagnostics
+    // LSP Diagnostics (linter results) settings.
+    // ******************************************
+
+    // Diagnostic codes to ignore
+    // Codes of diagnostics which should not be shown in the panel nor highlighted in the editor.
+    "ignoreCodes": [
+        "E501",
+        "E402",
+        "E203",
+        "W391"
+    ]
+}

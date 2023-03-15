@@ -1,0 +1,49 @@
+Bootstrap: docker
+From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel
+
+%files
+    ./docker/pytorch/Pipfile /workspace/
+    ./docker/pytorch/Pipfile.lock /workspace/
+
+%environment
+    export PATH=/workspace/.local/bin:$PATH
+    export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
+    export PIP_NO_CACHE_DIR="off"
+    export WORKON_HOME=/workspace/.venvs
+    export PIPENV_VENV_IN_PROJECT=1
+
+%post
+    export DEBIAN_FRONTEND="noninteractive"
+    export PATH=/workspace/.local/bin:$PATH
+    export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
+    export PIP_NO_CACHE_DIR="off"
+    export WORKON_HOME=/workspace/.venvs
+    export PIPENV_VENV_IN_PROJECT=1
+
+    # Update GPG key
+    # https://github.com/NVIDIA/nvidia-docker/issues/1631
+    rm /etc/apt/sources.list.d/cuda.list
+    rm /etc/apt/sources.list.d/nvidia-ml.list
+    apt-key del 7fa2af80
+    apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
+    apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/7fa2af80.pub
+
+    # libgl1-mesa-dev is necessary for opencv2
+    apt-get update
+    apt-get install -y --no-install-recommends \
+        less \
+        git \
+        curl \
+        zsh \
+        libgl1-mesa-dev \
+        libopencv-dev \
+        ttf-mscorefonts-installer
+    apt-get autoremove -y
+    apt-get clean
+    rm -rf /var/lib/apt/lists/*
+
+    cd /workspace
+    rm -rf ${HOME}/.cache/pip ${HOME}/.cache/pipenv
+    pip install -U pip pipenv
+    pipenv install --system --dev --ignore-pipfile
+    rm -rf ${HOME}/.cache/pip ${HOME}/.cache/pipenv
