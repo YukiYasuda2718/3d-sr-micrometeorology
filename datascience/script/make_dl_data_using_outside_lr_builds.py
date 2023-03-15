@@ -1,5 +1,3 @@
-ROOT_DIR = "/S/home00/G4012/y0630/workspace_lab/3d-scalar-sr"
-
 import argparse
 import os
 import pathlib
@@ -31,6 +29,8 @@ logger.addHandler(StreamHandler(sys.stdout))
 logger.setLevel(INFO)
 
 dask.config.set(**{"array.slicing.split_large_chunks": True})
+
+ROOT_DIR = "/S/home00/G4012/y0630/workspace_lab/3d-scalar-sr"
 
 ROOT_RESUT_DIR = pathlib.Path("/data/mssg-results/tokyo_05m")
 DL_DATA_ROOT_DIR = pathlib.Path(f"{ROOT_DIR}/data/DL_data")
