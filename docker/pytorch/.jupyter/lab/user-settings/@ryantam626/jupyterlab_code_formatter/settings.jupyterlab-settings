@@ -1,0 +1,62 @@
+{
+    // Jupyterlab Code Formatter
+    // @ryantam626/jupyterlab_code_formatter:settings
+    // Jupyterlab Code Formatter settings.
+    // **********************************************
+
+    // Autopep8 Config
+    // Config to be passed into autopep8's fix_code function call as the options dictionary.
+    "autopep8": {},
+
+    // Black Config
+    // Config to be passed into black's format_str function call.
+    "black": {
+        "line_length": 100,
+        "string_normalization": true
+    },
+
+    // Auto format config
+    // Auto format code when save the notebook.
+    "formatOnSave": true,
+
+    // FormatR Config
+    // Config to be passed into formatR's tidy_source function call.
+    "formatR": {
+        "indent": 2,
+        "arrow": true,
+        "wrap": true,
+        "width_cutoff": 150
+    },
+
+    // Isort Config
+    // Config to be passed into isort's SortImports function call.
+    "isort": {
+        "multi_line_output": 3,
+        "include_trailing_comma": true,
+        "force_grid_wrap": 0,
+        "use_parentheses": true,
+        "line_length": 100
+    },
+
+    // Code Formatter Preferences
+    // Preferences for this plugin
+    "preferences": {
+        "default_formatter": {
+            "python": [
+                "isort",
+                "black"
+            ],
+            "r": "formatR"
+        }
+    },
+
+    // Styler Config
+    // Config to be passed into styler's style_text function call.
+    "styler": {},
+
+    // YAPF Config
+    // Config to be passed into yapf's FormatCode function call.
+    "yapf": {
+        "style_config": "google"
+    }
+}
