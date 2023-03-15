@@ -44,6 +44,6 @@ From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel
 
     cd /workspace
     rm -rf ${HOME}/.cache/pip ${HOME}/.cache/pipenv
-    pip install -U pip pipenv
+    pip install -U pip==23.0.1 pipenv==2023.2.18
     pipenv install --system --dev --ignore-pipfile
     rm -rf ${HOME}/.cache/pip ${HOME}/.cache/pipenv

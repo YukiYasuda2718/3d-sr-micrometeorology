@@ -3,21 +3,12 @@ services:
   datascience:
     build:
       context: ./docker/datascience
-      args:
-        - http_proxy
-        - https_proxy
-        - HTTP_PROXY
-        - HTTPS_PROXY
     tty: true
     ports:
       - "10190:8888"
     user: root
     environment:
       - JUPYTER_ENABLE_LAB=yes
-      - http_proxy
-      - https_proxy
-      - HTTP_PROXY
-      - HTTPS_PROXY
       - PYTHONPATH=/workspace/datascience
     command:
       jupyter lab --no-browser --ip=0.0.0.0 --allow-root --LabApp.token=''
@@ -28,20 +19,11 @@ services:
     shm_size: "20gb"
     build:
       context: ./docker/pytorch
-      args:
-        - http_proxy
-        - https_proxy
-        - HTTP_PROXY
-        - HTTPS_PROXY
     tty: true
     ports:
       - "10190:8888"
       - "10107:5000"
     environment:
-      - http_proxy
-      - https_proxy
-      - HTTP_PROXY
-      - HTTPS_PROXY
       - PYTHONPATH=/workspace/pytorch
     volumes:
       - ./data:/workspace/data:cached
