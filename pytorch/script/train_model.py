@@ -52,7 +52,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--config_path", type=str, required=True)
 parser.add_argument("--world_size", type=int, default=2)
 
-ROOT_DIR = f"{os.environ['HOME']}/workspace_lab/3d-scalar-sr"
+ROOT_DIR = str((pathlib.Path(os.environ["PYTHONPATH"]) / "..").resolve())
 DL_DATA_DIR = pathlib.Path(f"{ROOT_DIR}/data/DL_data")
 
 mlflow.set_tracking_uri(f"{ROOT_DIR}/mlruns/")
@@ -287,7 +287,7 @@ if __name__ == "__main__":
         with open(config_path) as file:
             config = yaml.safe_load(file)
 
-        experiment_name = config_path.split("/")[-2]
+        experiment_name = "unet_model"
         config_name = os.path.basename(config_path).split(".")[0]
 
         _dir = f"{ROOT_DIR}/data/DL_results/{experiment_name}/{config_name}"

@@ -30,13 +30,13 @@ logger.setLevel(INFO)
 
 dask.config.set(**{"array.slicing.split_large_chunks": True})
 
-ROOT_DIR = "/S/home00/G4012/y0630/workspace_lab/3d-scalar-sr"
+ROOT_DIR = # Set your root dir.
 
 ROOT_RESUT_DIR = pathlib.Path("/data/mssg-results/tokyo_05m")
 DL_DATA_ROOT_DIR = pathlib.Path(f"{ROOT_DIR}/data/DL_data")
 HR_BUILDING_TXT_PATH = f"{ROOT_DIR}/datascience/script/EleTopoZ_HR.txt"
 LR_BUILDING_TXT_PATH = f"{ROOT_DIR}/datascience/script/EleTopoZ_LR.txt"
-LOG_DIR = f"{ROOT_DIR}/datascience/script/make_dl_data_using_outside_lr_builds/log"
+LOG_DIR = f"{ROOT_DIR}/datascience/log"
 os.makedirs(LOG_DIR, exist_ok=True)
 
 
