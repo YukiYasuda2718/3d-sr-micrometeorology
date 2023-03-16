@@ -32,7 +32,7 @@ This repository contains the source code used in *Super-Resolution of Three-Dime
 ```sh
 $ export PORT=8888 # your own port
 $ singularity exec --nv --env PYTHONPATH="$(pwd)/pytorch" \
-    ./pytorch.sif jupyter lab --no-browser --ip=0.0.0.0 --allow-root --LabApp.token='' --port=$PORT
+  ./pytorch.sif jupyter lab --no-browser --ip=0.0.0.0 --allow-root --LabApp.token='' --port=$PORT
 ```
 
 ## Code used in experiments
