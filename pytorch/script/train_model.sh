@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ROOT_DIR="/home/yuki_yasuda/workspace_lab/3d-scalar-sr" ;;
+ROOT_DIR= # Set the absolute path of the root dir of this GitHub repository.
 
 IMAGE_PATH="${ROOT_DIR}/pytorch.sif"
 SCRIPT_PATH="${ROOT_DIR}/pytorch/script/train_model.py"
