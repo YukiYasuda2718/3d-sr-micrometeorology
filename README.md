@@ -39,7 +39,8 @@ $ singularity exec --nv --env PYTHONPATH="$(pwd)/pytorch" \
 
 - [Data generation for deep learning](./datascience/script/make_dl_data_using_outside_lr_builds.py)
 - [CNN training](./pytorch/script/train_model.sh)
-  - This shell script runs [python script](./pytorch/script/train_model.py)
+  - This shell script runs [python script](./pytorch/script/train_model.py).
+  - Please specify your directory and config paths in [the shell script](./pytorch/script/train_model.sh).
 - [CNN evaluation](./pytorch/notebook)
   - The CNNs are evaluated using notebooks in the above dir.
 
