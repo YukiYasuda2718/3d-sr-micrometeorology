@@ -12,7 +12,7 @@ This repository contains the source code used in *Super-Resolution of Three-Dime
 ## Setup
 
 - The Singularity containers were used for experiments.
-- The Docker containers have the same environments as in the Singularity containers.
+- The Docker containers provide the same environments as in the Singularity containers.
 
 ### Docker Containers
 
@@ -38,9 +38,12 @@ $ singularity exec --nv --env PYTHONPATH="$(pwd)/pytorch" \
 ## Code used in experiments
 
 - [Data generation for deep learning](./datascience/script/make_dl_data_using_outside_lr_builds.py)
+  - This code is run on the `datascience` container.
 - [CNN training](./pytorch/script/train_model.sh)
   - This shell script runs [python script](./pytorch/script/train_model.py).
+    - This code is run on the `pytorch` container.
   - Please specify your directory and config paths in [the shell script](./pytorch/script/train_model.sh).
 - [CNN evaluation](./pytorch/notebook)
   - The CNNs are evaluated using notebooks in the above dir.
+  - These notebooks are run on the `pytorch` container.
 
