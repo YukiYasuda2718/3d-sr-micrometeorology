@@ -27,23 +27,23 @@ This repository contains the source code used in *Super-Resolution of Three-Dime
     - `$ singularity build -f datascience.sif ./singularity/datascience.sif.def`
     - `$ singularity build -f pytorch.sif ./singularity/pytorch.def`
 2. Start singularity containers:
-    - The following command is an exmple for local
+    - The following command is an exmple for local.
 
 ```sh
-$ export PORT=8888 # your own port
-$ singularity exec --nv --env PYTHONPATH="$(pwd)/pytorch" \
+export PORT=8888 # your own port
+singularity exec --nv --env PYTHONPATH="$(pwd)/pytorch" \
   ./pytorch.sif jupyter lab --no-browser --ip=0.0.0.0 --allow-root --LabApp.token='' --port=$PORT
 ```
 
 ## Code used in experiments
 
 - [Data generation for deep learning](./datascience/script/make_dl_data_using_outside_lr_builds.py)
-  - This code is run on the `datascience` container.
+  - This code was run using the `datascience` container on [the Earth Simulator](https://www.jamstec.go.jp/es/en/).
 - [CNN training](./pytorch/script/train_model.sh)
+  - The root directory and config paths are need to be specified.
   - This shell script runs [python script](./pytorch/script/train_model.py).
-    - This code is run on the `pytorch` container.
-  - Please specify your directory and config paths in [the shell script](./pytorch/script/train_model.sh).
+    - This python script was run using the `pytorch` container on [the Earth Simulator](https://www.jamstec.go.jp/es/en/).
 - [CNN evaluation](./pytorch/notebook)
-  - The CNNs are evaluated using notebooks in the above dir.
-  - These notebooks are run on the `pytorch` container.
+  - The CNNs were evaluated using notebooks in [the above dir](./pytorch/notebook).
+  - These notebooks wre run using the `pytorch` container on a local environment.
 
