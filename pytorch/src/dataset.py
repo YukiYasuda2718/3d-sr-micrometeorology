@@ -133,7 +133,7 @@ class DatasetWithoutAligningResolution(Dataset):
     def _scale_and_clamp(self, data: torch.Tensor, use_clipping: bool) -> torch.Tensor:
         ret = (data - self.means) / self.stds
         if use_clipping:
-            ret = torch.clamp(ret, min=0, max=None)
+            ret = torch.clamp(ret, min=0.0, max=1.0)
         return ret
 
     def __getitem__(self, idx: int) -> typing.Tuple[torch.Tensor, torch.Tensor]:
