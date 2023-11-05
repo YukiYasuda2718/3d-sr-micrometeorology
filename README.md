@@ -1,13 +1,14 @@
 # 3d-sr-micrometeorology <!-- omit in toc -->
 
-[![license](https://img.shields.io/badge/license-CC%20BY--NC--SA-informational)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode)  [![reference](https://img.shields.io/badge/reference-arXiv-important)](https://arxiv.org/abs/2303.16684) [![pytorch](https://img.shields.io/badge/PyTorch-1.11.0-informational)](https://pytorch.org/)
+[![license](https://img.shields.io/badge/license-CC%20BY--NC--SA-informational)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode)  [![reference](https://img.shields.io/badge/reference-arXiv-important)](https://arxiv.org/abs/2303.16684) [![reference](https://img.shields.io/badge/reference-bae-important)](https://doi.org/10.1016/j.buildenv.2023.110613) [![pytorch](https://img.shields.io/badge/PyTorch-1.11.0-informational)](https://pytorch.org/)
 
-This repository contains the source code used in *Super-Resolution of Three-Dimensional Temperature and Velocity for Building-Resolving Urban Micrometeorology Using Physics-Guided Convolutional Neural Networks with Image Inpainting Techniques* ([arXiv](https://arxiv.org/abs/2303.16684)).
+This repository contains the source code used in *Super-Resolution of Three-Dimensional Temperature and Velocity for Building-Resolving Urban Micrometeorology Using Physics-Guided Convolutional Neural Networks with Image Inpainting Techniques* ([arXiv](https://arxiv.org/abs/2303.16684), [bae](https://doi.org/10.1016/j.buildenv.2023.110613)).
 
 - [Setup](#setup)
   - [Docker Containers](#docker-containers)
   - [Singularity Containers](#singularity-containers)
 - [Code used in experiments](#code-used-in-experiments)
+- [Citation](#citation)
 
 ## Setup
 
@@ -47,3 +48,19 @@ singularity exec --nv --env PYTHONPATH="$(pwd)/pytorch" \
   - The CNNs were evaluated using notebooks in [the above dir](./pytorch/notebook).
   - These notebooks wre run using the `pytorch` container on a local environment.
 
+
+## Citation
+
+```bibtex
+@article{
+  title = {Super-resolution of three-dimensional temperature and velocity for building-resolving urban micrometeorology using physics-guided convolutional neural networks with image inpainting techniques},
+  journal = {Building and Environment},
+  volume = {243},
+  pages = {110613},
+  year = {2023},
+  issn = {0360-1323},
+  doi = {https://doi.org/10.1016/j.buildenv.2023.110613},
+  url = {https://www.sciencedirect.com/science/article/pii/S0360132323006406},
+  author = {Yuki Yasuda and Ryo Onishi and Keigo Matsuda}
+}
+```
